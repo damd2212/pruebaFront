@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-header"><h4>Pruebas guardadas</h4></div>
+  <div class="card-body">
+    <h5 class="card-title">Listado de Pruebas</h5>
+    <div *ngIf="pruebas?.length==0" class="alert alert-info" >
+        No existen pruebas registradas
+    </div>
+
+    <table class="table table-hover table-bordered table-striped" *ngIf="pruebas.length>0">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Fecha y hora Prueba</th>
+              <th>Palabra o variables</th>
+              <th>Resultado</th>
+              <th>Tipo de prueba</th>
+          </tr>
+
+      </thead>
+      <tbody>
+          <tr *ngFor="let prueba of pruebas">
+              <td>{{prueba.id}}</td>
+              <td>{{prueba.fecha_hora_prueba}}</td>
+              <td>{{prueba.palabra_variables}}</td>
+              <td>{{prueba.resultado}}</td>
+              <td>{{prueba.tipo_prueba}}</td>
+
+              <td>
+
+                <button style="margin-left: 10px;" type="button" (click)="eliminarRegistro(prueba.id)" class="btn btn-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                  </svg>
+                  Eliminar
+                </button>
+
+              </td>
+          </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+

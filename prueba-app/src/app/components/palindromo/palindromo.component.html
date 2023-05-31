@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center">
+  <div class="card bg-light text-dark w-75 my-3">
+      <div class="card-header" style="text-align: center;"><h4>Cadenas Palindromas</h4></div>
+      <div class="card-body">
+          <h5 class="card-title">
+              Verificar si una palabra o frase es palindroma
+            </h5>
+          <form #palindromoForm="ngForm">
+              <div class="form-group mb-3">
+                  <label class="form-label">Palabra o frase palindorma</label>
+                  <input class="form-control" type="text" placeholder="Ingresa una palabra o frase" [(ngModel)]="palabra_frase"
+                      name="palabra" required palabra #palabra="ngModel">
+                  <div *ngIf="palabra.invalid && (palabra.dirty || palabra.touched)">
+                      <small class="text-danger" *ngIf="palabra?.errors?.['required']">
+                          • El campo "Palabra o Frase" es requerido
+                      </small>
+                  </div>
+              </div>
+              <div class="d-flex justify-content-end mt-4">
+                  <button type="button" class="btn btn-primary" (click)="realizarConsulta()"
+                      [disabled]="!palindromoForm.form.valid">
+                      Consultar cadena
+                  </button>
+              </div>
+          </form>
+
+          <h6>
+            {{resultado}}
+          </h6>
+
+      </div>
+  </div>
+</div>

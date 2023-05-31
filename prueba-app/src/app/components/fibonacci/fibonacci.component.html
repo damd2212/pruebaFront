@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center">
+  <div class="card bg-light text-dark w-75 my-3">
+      <div class="card-header" style="text-align: center;"><h4>Serie de fibonacci</h4></div>
+      <div class="card-body">
+          <h5 class="card-title">
+              Consultar la serie de fibonacci en un rango dado
+            </h5>
+          <form #fibonacciForm="ngForm">
+              <div class="form-group mb-3">
+                  <label class="form-label">Numero a consultar</label>
+                  <input class="form-control" type="number" placeholder="Ingresa el rango a consultar" [(ngModel)]="numero_ingresado"
+                      name="numero" required numero #numero="ngModel">
+                  <div *ngIf="numero.invalid && (numero.dirty || numero.touched)">
+                      <small class="text-danger" *ngIf="numero?.errors?.['required']">
+                          • El campo "Numero" es requerido
+                      </small>
+                  </div>
+              </div>
+              <div class="d-flex justify-content-end mt-4">
+                  <button type="button" class="btn btn-primary" (click)="consultarFibonacci()"
+                      [disabled]="!fibonacciForm.form.valid">
+                      Consultar serie
+                  </button>
+              </div>
+          </form>
+
+          <h6>
+            {{resultado}}
+          </h6>
+
+      </div>
+  </div>
+</div>
